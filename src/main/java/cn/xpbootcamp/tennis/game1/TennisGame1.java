@@ -28,33 +28,36 @@ public class TennisGame1 implements TennisGame {
         } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
             score = getThanFourStore();
         } else {
-            getOtherScore(score,0);
+            score = getOtherScore(score);
         }
         return score.toString();
     }
 
-    private void getOtherScore(StringBuilder score,int tempScore) {
+    private StringBuilder getOtherScore(StringBuilder score) {
+        StringBuilder stringBuilder = new StringBuilder(score);
         for (int i = 1; i < 3; i++) {
+            int tempScore;
             if (i == 1) tempScore = playerOneScore;
             else {
-                score.append("-");
+                stringBuilder.append("-");
                 tempScore = playerTwoScore;
             }
             switch (tempScore) {
                 case 0:
-                    score.append("Love");
+                    stringBuilder.append("Love");
                     break;
                 case 1:
-                    score.append("Fifteen");
+                    stringBuilder.append("Fifteen");
                     break;
                 case 2:
-                    score.append("Thirty");
+                    stringBuilder.append("Thirty");
                     break;
                 case 3:
-                    score.append("Forty");
+                    stringBuilder.append("Forty");
                     break;
             }
         }
+        return stringBuilder;
     }
 
     private StringBuilder getThanFourStore() {
