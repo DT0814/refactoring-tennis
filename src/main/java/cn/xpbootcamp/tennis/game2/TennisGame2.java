@@ -3,11 +3,11 @@ package cn.xpbootcamp.tennis.game2;
 import cn.xpbootcamp.tennis.TennisGame;
 
 public class TennisGame2 implements TennisGame {
-    public int P1point = 0;
-    public int P2point = 0;
+    private int P1point = 0;
+    private int P2point = 0;
 
-    public String P1res = "";
-    public String P2res = "";
+    private String P1res = "";
+    private String P2res = "";
     private String player1Name;
     private String player2Name;
 
@@ -109,16 +109,16 @@ public class TennisGame2 implements TennisGame {
 
     }
 
-    public void P1Score() {
+    private void P1Score() {
         P1point++;
     }
 
-    public void P2Score() {
+    private void P2Score() {
         P2point++;
     }
 
     public void wonPoint(String player) {
-        if (player == "player1")
+        if (player.equals("player1"))
             P1Score();
         else
             P2Score();
